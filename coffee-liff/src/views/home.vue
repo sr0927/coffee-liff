@@ -71,17 +71,15 @@
           </router-link>
         </div>
         <div class="col-6">
-          <router-link :to="{ name: 'brew' }">
-            <button type="button" class="btn btn-store home-btn">
-              <div class="button-content">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                  <path
-                    d="M10 9v-1.098l1.047-4.902h1.905l1.048 4.9v1.098c0 1.067-.933 2.002-2 2.002s-2-.933-2-2zm5 0c0 1.067.934 2 2.001 2s1.999-.833 1.999-1.9v-1.098l-2.996-5.002h-1.943l.939 4.902v1.098zm-10 .068c0 1.067.933 1.932 2 1.932s2-.865 2-1.932v-1.097l.939-4.971h-1.943l-2.996 4.971v1.097zm-4 2.932h22v12h-22v-12zm2 8h18v-6h-18v6zm1-10.932v-1.097l2.887-4.971h-2.014l-4.873 4.971v1.098c0 1.066.933 1.931 2 1.931s2-.865 2-1.932zm15.127-6.068h-2.014l2.887 4.902v1.098c0 1.067.933 2 2 2s2-.865 2-1.932v-1.097l-4.873-4.971zm-.127-3h-14v2h14v-2z" />
-                </svg>
-              </div>
-              <p>獲取膠囊</p>
-            </button>
-          </router-link>
+          <button type="button" class="btn btn-store home-btn" @click='GoStore'>
+            <div class="button-content">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M10 9v-1.098l1.047-4.902h1.905l1.048 4.9v1.098c0 1.067-.933 2.002-2 2.002s-2-.933-2-2zm5 0c0 1.067.934 2 2.001 2s1.999-.833 1.999-1.9v-1.098l-2.996-5.002h-1.943l.939 4.902v1.098zm-10 .068c0 1.067.933 1.932 2 1.932s2-.865 2-1.932v-1.097l.939-4.971h-1.943l-2.996 4.971v1.097zm-4 2.932h22v12h-22v-12zm2 8h18v-6h-18v6zm1-10.932v-1.097l2.887-4.971h-2.014l-4.873 4.971v1.098c0 1.066.933 1.931 2 1.931s2-.865 2-1.932zm15.127-6.068h-2.014l2.887 4.902v1.098c0 1.067.933 2 2 2s2-.865 2-1.932v-1.097l-4.873-4.971zm-.127-3h-14v2h14v-2z" />
+              </svg>
+            </div>
+            <p>獲取膠囊</p>
+          </button>
         </div>
         <div class="col-6">
           <router-link :to="{ name: 'personal' }">
@@ -154,7 +152,8 @@ export default {
           liff.scanCodeV2()
             .then(result => {
               // result = { value: '' }
-              alert(result.value);
+              //alert(result.value);
+              window.location.href = '/brew?' + result.value;
             });
         }
       } else {
@@ -162,11 +161,15 @@ export default {
           liff.scanCode()
             .then(result => {
               // result = { value: '' }
-              alert(result.value);
+              //alert(result.value);
+              window.location.href = '/brew?' + result.value;
             });
         }
       }
 
+    },
+    GoStore() {
+      window.location.href = "https://cmapis.aeust.edu.tw/cafenyiot/index";
     },
     getMachine() {
       const api = this.url + "/api/MachineSelect/" + this.user_id;
