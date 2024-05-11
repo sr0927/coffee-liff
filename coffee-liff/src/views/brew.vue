@@ -102,10 +102,10 @@ export default {
             this.capsule_type = q_capsule_type
         }
         if (q_water != undefined && q_water !== null) {
-            this.capsule_type = q_water
+            this.water = q_water
         }
         if (q_temperature != undefined && q_temperature !== null) {
-            this.capsule_type = q_temperature
+            this.temperature = q_temperature
         }
 
     },
