@@ -159,6 +159,7 @@ export default {
                 "air_pressure": air_pressure
             }).then(response => {
                 console.log(response);
+                alert("開始沖煮")
             })
 
         },
