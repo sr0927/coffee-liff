@@ -145,6 +145,7 @@ export default {
       })
       .catch((e) => {
       });
+    console.log(this.url + "/api/MachineSelect/" + this.user_id)
   },
   methods: {
     QRcodeScan() {
