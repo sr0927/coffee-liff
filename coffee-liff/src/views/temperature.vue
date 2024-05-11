@@ -126,6 +126,7 @@ export default {
                 "temperature": this.input_temperature
             }).then(response => {
                 this.set_temperature = this.input_temperature;
+                alert("設定成功");
             })
         },
         getmachine(id) {
