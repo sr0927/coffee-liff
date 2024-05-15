@@ -64,7 +64,7 @@ export default {
     data() {
         return {
             url: import.meta.env.VITE_BACKEND,
-            capsule_type: "未知",
+            capsule_type: "個人獨特風味",
             machines: [],
             user: "",
             select_machine: 0,
